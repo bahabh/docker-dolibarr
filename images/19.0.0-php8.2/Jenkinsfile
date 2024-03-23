@@ -44,15 +44,6 @@ pipeline {
         }
       }
     }
-stage('Push Docker Image') {
-            steps {
-                // Push the Docker image to your Docker registry
-                docker.withRegistry('', '10') {
-                appImage.push()
-                }
-            }
-        }
-    }
 
     stage('Run Docker Compose') {
             steps {
@@ -64,5 +55,15 @@ stage('Push Docker Image') {
                 }
             }
         }
+    
+    stage('Push Docker Image') {
+            steps {
+                // Push the Docker image to your Docker registry
+                docker.withRegistry('', '10') {
+                appImage.push()
+                }
+            }
+        }
+    }
   }
 }
