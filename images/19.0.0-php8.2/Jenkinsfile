@@ -39,14 +39,21 @@ pipeline {
           script {
             // Build the Docker image
             def appImage = docker.build("bahaben/dolibarr_repository:${env.BUILD_NUMBER}", "-f images/19.0.0-php8.2/Dockerfile .")
-            // Push the Docker image to your Docker registry
-            docker.withRegistry('', '10') {
-              appImage.push()
-            }
+           echo 'duild success'
           }
         }
       }
     }
+stage('Push Docker Image') {
+            steps {
+                // Push the Docker image to your Docker registry
+                docker.withRegistry('', '10') {
+                appImage.push()
+                }
+            }
+        }
+    }
+
     stage('Run Docker Compose') {
             steps {
                 script {
