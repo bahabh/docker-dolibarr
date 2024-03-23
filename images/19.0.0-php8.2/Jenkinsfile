@@ -53,9 +53,9 @@ pipeline {
             steps {
                 script {
                     // Run Docker Compose with the specified docker-compose.yml file
-                    dockerComposeFile = 'images/19.0.0-php8.2/docker-compose.yml'
-                    sh'docker.compose -f ${dockerComposeFile} up -d'
-                    
+                    dockerComposeFile = 'docker-compose.yml'
+                    dockerComposeCommand = "docker-compose -f ${dockerComposeFile} up -d"
+                    sh "${dockerComposeCommand}"
                 }
             }
         }
