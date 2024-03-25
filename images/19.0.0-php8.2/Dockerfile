@@ -89,6 +89,6 @@ VOLUME /var/www/html/custom
 
 COPY docker-init.php /var/www/scripts/
 COPY docker-run.sh /usr/local/bin/
-ENTRYPOINT ["images/19.0.0-php8.2/docker-run.sh"]
+ENTRYPOINT ["docker-run.sh"]
 
 CMD ["apache2-foreground"]
