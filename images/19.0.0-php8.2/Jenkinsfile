@@ -23,7 +23,7 @@ pipeline {
             image: mariadb:latest
             env:
             - name: MYSQL_ROOT_PASSWORD
-             value: "root"
+            value: "root"
             ports:
             - containerPort: 3306
           volumes:
