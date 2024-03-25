@@ -2,7 +2,7 @@ ARG ARCH=
 
 FROM ${ARCH}php:8.2-apache-buster
 
-LABEL maintainer="Garcia MICHEL <garcia@soamichel.fr>"
+LABEL maintainer="Baha Ben Hassine <bahabenhassine2@gmail.com>"
 
 ENV DOLI_VERSION 19.0.0
 ENV DOLI_INSTALL_AUTO 1
@@ -89,6 +89,6 @@ VOLUME /var/www/html/custom
 
 COPY docker-init.php /var/www/scripts/
 COPY docker-run.sh /usr/local/bin/
-ENTRYPOINT ["./docker-run.sh"]
+ENTRYPOINT ["images/19.0.0-php8.2/docker-run.sh"]
 
 CMD ["apache2-foreground"]
