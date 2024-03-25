@@ -53,7 +53,7 @@ pipeline {
                 container('docker') {
                     script {
                         // Build the Docker image using docker-compose
-                        sh 'docker-compose up -d images/19.0.0-php8.2/docker-compose.yml'
+                        sh 'docker-compose -f images/19.0.0-php8.2/docker-compose.yml up'
                         echo 'docker-compose image build success'
                     }
                 }
