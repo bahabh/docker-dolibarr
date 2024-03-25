@@ -19,7 +19,7 @@ pipeline {
             volumeMounts:
              - mountPath: /var/run/docker.sock
                name: docker-sock
-             - name: mariadb
+          - name: mariadb
             image: mariadb:latest
             env:
             - name: MYSQL_ROOT_PASSWORD
