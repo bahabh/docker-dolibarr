@@ -19,13 +19,6 @@ pipeline {
             volumeMounts:
              - mountPath: /var/run/docker.sock
                name: docker-sock
-          - name: mariadb
-            image: mariadb:latest
-            env:
-            - name: MYSQL_ROOT_PASSWORD
-            value: "root"
-            ports:
-            - containerPort: 3306
           volumes:
           - name: docker-sock
             hostPath:
@@ -55,5 +48,16 @@ pipeline {
         }
       }
     }
+    stage('Build Docker Compose Image') {
+            steps {
+                container('docker') {
+                    script {
+                        // Build the Docker image using docker-compose
+                        sh 'docker-compose -f docker-compose.yml build'
+                        echo 'docker-compose image build success'
+                    }
+                }
+            }
+        }
     }
   }
