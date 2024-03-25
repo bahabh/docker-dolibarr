@@ -19,13 +19,13 @@ pipeline {
             volumeMounts:
              - mountPath: /var/run/docker.sock
                name: docker-sock
-                 - name: mariadb
-    image: mariadb:latest
-    env:
-    - name: MYSQL_ROOT_PASSWORD
-      value: "your_root_password"
-    ports:
-    - containerPort: 3306
+             - name: mariadb
+            image: mariadb:latest
+            env:
+            - name: MYSQL_ROOT_PASSWORD
+            value: "12345"
+            ports:
+            - containerPort: 3306
           volumes:
           - name: docker-sock
             hostPath:
