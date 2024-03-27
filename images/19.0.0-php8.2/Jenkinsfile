@@ -48,16 +48,5 @@ pipeline {
         }
       }
     }
-    stage('Build Docker Compose Image') {
-            steps {
-                container('docker') {
-                    script {
-                        // Build the Docker image using docker-compose
-                        sh 'docker-compose -f images/19.0.0-php8.2/docker-compose.yml build'
-                        echo 'docker-compose image build success'
-                    }
-                }
-            }
-        }
     }
   }
